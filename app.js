@@ -46,7 +46,7 @@ input.forEach(function (item) {
       e.target.nextElementSibling.classList.add("show-error");
       e.target.parentElement.nextElementSibling.style.display = "block";
     }
-    if (e.target === email && email.value === "") {
+    if (e.target === email && e.target.value === "") {
       e.target.classList.add("red-border");
       e.target.nextElementSibling.classList.add("show-error");
       e.target.parentElement.nextElementSibling.style.display = "block";
@@ -60,7 +60,11 @@ input.forEach(function (item) {
       email.nextElementSibling.classList.add("show-error");
     }
 
-    if (!email.value.match(validEmail) && email.value === "") {
+    if (
+      !email.value.match(validEmail) &&
+      email.value === "" &&
+      e.target === email
+    ) {
       wrongEmail.style.display = "none";
       email.classList.add("red-border");
       email.nextElementSibling.classList.add("show-error");
